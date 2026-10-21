@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Portal do Cliente — Grupo Chiacchio</title><style>/* cyrillic-ext */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/assets/portal-montserrat-cyrillic-ext.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/assets/portal-montserrat-cyrillic.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/assets/portal-montserrat-vietnamese.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/assets/portal-montserrat-latin-ext.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/assets/portal-montserrat-latin.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/assets/portal-montserrat-cyrillic-ext.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/assets/portal-montserrat-cyrillic.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/assets/portal-montserrat-vietnamese.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/assets/portal-montserrat-latin-ext.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/assets/portal-montserrat-latin.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/assets/portal-montserrat-cyrillic-ext.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/assets/portal-montserrat-cyrillic.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/assets/portal-montserrat-vietnamese.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/assets/portal-montserrat-latin-ext.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/assets/portal-montserrat-latin.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/assets/portal-montserrat-cyrillic-ext.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/assets/portal-montserrat-cyrillic.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/assets/portal-montserrat-vietnamese.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/assets/portal-montserrat-latin-ext.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/assets/portal-montserrat-latin.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("/assets/portal-montserrat-cyrillic-ext.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("/assets/portal-montserrat-cyrillic.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("/assets/portal-montserrat-vietnamese.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("/assets/portal-montserrat-latin-ext.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("/assets/portal-montserrat-latin.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+
+body{margin:0;background:#F2F2F2;color:#1F1F1F;font-family:Montserrat,system-ui,sans-serif;font-size:13px;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}button,select,input,textarea{font:inherit;color:inherit}
+input,select,textarea{outline:none;background:#fff}
+input:focus,select:focus,textarea:focus{border-color:#C70602!important;box-shadow:0 0 0 3px rgba(199,6,2,.08)!important}
+a{color:#A80502;text-decoration:none}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:#D0D0D0;border-radius:3px}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
+</style><style>
+/* Adaptações responsivas; dimensões e cores de desktop seguem o HTML de referência. */
+[hidden] { display:none !important; }
+.portal-condition { display:contents; }
+*,*::before,*::after { box-sizing:border-box; }
+input,select,textarea,button { font-family:inherit; }
+input,select,textarea { min-width:0; background:#fff; color:#1F1F1F; }
+input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-visible,a:focus-visible,[role=button]:focus-visible { outline:2px solid #24508F;outline-offset:3px; }
+button:disabled { cursor:wait !important; opacity:.65; }
+.portal-home-card { transition:border-color .15s,box-shadow .15s; }
+.portal-home-card:hover { box-shadow:0 6px 28px rgba(0,0,0,.09); }
+.portal-home-card[data-action=irReclamacao]:hover { border-color:#C70602 !important; }
+.portal-home-card[data-action=irPesquisa]:hover { border-color:#1A6632 !important; }
+.portal-home-card[data-action=irProtocolo]:hover { border-color:#24508F !important; }
+.portal-error { background:#FFF5F5;border:1.5px solid #F5CCCC;border-radius:10px;padding:14px;color:#C70602;font-size:13px;margin:0 0 14px; }
+#man-protocolo-display { overflow-wrap:anywhere; }
+#prot-input { min-width:0; }
+#man-evidencias { display:none; }
+@media(max-width:600px) {
+ header { padding:0 16px !important; }
+ header img { max-width:155px; height:auto !important; max-height:40px; }
+ header a { padding:8px 10px !important; }
+ header button { padding:0 8px !important; }
+ .portal-two-cols { grid-template-columns:1fr !important; }
+ .portal-nps { flex-wrap:wrap; }
+ .portal-nps button { flex:1 0 13% !important; }
+ #man-success > div,#pesq-success > div { padding:28px 20px !important; }
+ #prot-input { font-size:12px !important; }
+}
+@media(max-width:420px) {
+ header img { max-width:120px; }
+ header a { font-size:11px !important; gap:4px !important; padding:8px !important; }
+ header button { font-size:11px !important; }
+ h1 { font-size:26px !important; }
+ [data-condition=isInicio] > div { padding-left:18px !important;padding-right:18px !important; }
+ [data-condition=isInicio] > div > div:nth-child(2) { grid-template-columns:minmax(0,1fr) !important; }
+ [data-client-type] { height:auto !important;min-height:44px;padding:8px;font-size:11px !important; }
+}
+@media(prefers-reduced-motion:reduce) { *,*::before,*::after { animation:none !important;transition:none !important; } }
+</style>
+<link rel="stylesheet" href="/assets/pesquisa-formulario.css">
+<script src="/assets/pesquisa-formulario.js"></script>
+</head>
+<body>
+
+
+
+<div style="min-height:100vh;display:flex;flex-direction:column;background:#F2F2F2">
+
+  <!-- HEADER -->
+  <header style="background:#fff;border-bottom:1px solid #E8E8E8;padding:0 28px;height:70px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;position:sticky;top:0;z-index:10;box-shadow:0 1px 8px rgba(0,0,0,.06)">
+    <div style="display:flex;align-items:center;gap:12px">
+      <img src="/assets/portal-grupo-chiacchio.png" alt="Grupo Chiacchio" style="height:40px;flex-shrink:0;object-fit:contain">
+    </div>
+    <div style="display:flex;align-items:center;gap:10px">
+      <!-- WhatsApp SAC -->
+      <a href="#" target="_blank" style="display:flex;align-items:center;gap:7px;background:#25D366;color:#fff;border-radius:8px;padding:8px 14px;font-size:12.5px;font-weight:700;text-decoration:none" data-whatsapp="true" aria-disabled="true" onclick="openWhatsApp(event)" rel="noopener noreferrer">
+        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"></path></svg>
+        Falar com SAC
+      </a>
+      <div data-condition="notInicio" class="portal-condition" hidden="">
+        <button style="height:36px;border:1px solid #E0E0E0;background:#fff;border-radius:8px;padding:0 14px;font-size:12.5px;font-weight:600;cursor:pointer;color:#545252;display:flex;align-items:center;gap:6px" onclick="goTo('page-home')">
+          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          Voltar
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTEÚDO -->
+  <div style="flex:1;display:flex;flex-direction:column">
+
+    <!-- ===== INÍCIO ===== -->
+    <div data-condition="isInicio" class="portal-condition page" id="page-home">
+      <div style="flex:1;display:flex;flex-direction:column;align-items:center;padding:48px 24px 64px;animation:fadeUp .3s ease">
+        <div style="text-align:center;max-width:580px;margin-bottom:52px">
+          <div style="display:flex;justify-content:center;margin-bottom:20px">
+            <img src="/assets/portal-grupo-chiacchio.png" alt="Grupo Chiacchio" style="height:72px;object-fit:contain">
+          </div>
+          <h1 style="font-size:30px;font-weight:800;letter-spacing:-.02em;margin:0 0 16px;color:#1F1F1F">Gestão de Manifestações<br>Grupo Chiacchio</h1>
+          <p style="font-size:15px;color:#545252;line-height:1.75;margin:0;text-wrap:pretty">Estamos aqui para ouvir você. Acesse nossos canais de atendimento, registre sua manifestação e acompanhe o andamento da sua solicitação.</p>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;width:100%;max-width:960px">
+
+          <!-- Reclamação -->
+          <div style="background:#fff;border:1.5px solid #EBEBEB;border-radius:16px;padding:28px 26px;display:flex;flex-direction:column;cursor:pointer" onclick="goTo('page-manifestacao')" class="portal-home-card" data-action="irReclamacao" data-hover="border-color:#C70602;box-shadow:0 6px 28px rgba(0,0,0,.09)">
+            <div style="width:48px;height:48px;background:#FDECEC;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;flex-shrink:0">
+              <svg width="22" height="22" fill="none" stroke="#C70602" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+            </div>
+            <div style="font-size:16px;font-weight:800;color:#1F1F1F;margin-bottom:8px">Registrar uma reclamação</div>
+            <div style="font-size:13px;color:#727272;line-height:1.65;flex:1;margin-bottom:22px;text-wrap:pretty">Conte o que aconteceu para que nossa equipe possa analisar sua manifestação e buscar uma solução.</div>
+            <button style="height:44px;border:0;background:#C70602;color:#fff;border-radius:9px;font-size:13.5px;font-weight:700;cursor:pointer;width:100%">Fazer uma reclamação</button>
+          </div>
+
+          <!-- Pesquisa -->
+          <div style="background:#fff;border:1.5px solid #EBEBEB;border-radius:16px;padding:28px 26px;display:flex;flex-direction:column;cursor:pointer" onclick="goTo('page-pesquisa')" class="portal-home-card" data-action="irPesquisa" data-hover="border-color:#1A6632;box-shadow:0 6px 28px rgba(0,0,0,.09)">
+            <div style="width:48px;height:48px;background:#EAF4ED;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;flex-shrink:0">
+              <svg width="22" height="22" fill="none" stroke="#1A6632" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            </div>
+            <div style="font-size:16px;font-weight:800;color:#1F1F1F;margin-bottom:8px">Pesquisa de satisfação</div>
+            <div style="font-size:13px;color:#727272;line-height:1.65;flex:1;margin-bottom:22px;text-wrap:pretty">Sua opinião é importante para melhorarmos nossos produtos, serviços e atendimento.</div>
+            <button style="height:44px;border:0;background:#1A6632;color:#fff;border-radius:9px;font-size:13.5px;font-weight:700;cursor:pointer;width:100%">Responder pesquisa</button>
+          </div>
+
+          <!-- Protocolo -->
+          <div style="background:#fff;border:1.5px solid #EBEBEB;border-radius:16px;padding:28px 26px;display:flex;flex-direction:column;cursor:pointer" onclick="openProtocol()" class="portal-home-card" data-action="irProtocolo" data-hover="border-color:#24508F;box-shadow:0 6px 28px rgba(0,0,0,.09)">
+            <div style="width:48px;height:48px;background:#E6EEF8;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;flex-shrink:0">
+              <svg width="22" height="22" fill="none" stroke="#24508F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            </div>
+            <div style="font-size:16px;font-weight:800;color:#1F1F1F;margin-bottom:8px">Acompanhar minha reclamação</div>
+            <div style="font-size:13px;color:#727272;line-height:1.65;flex:1;margin-bottom:22px;text-wrap:pretty">Consulte a situação atual da sua manifestação utilizando seu número de protocolo.</div>
+            <button style="height:44px;border:0;background:#24508F;color:#fff;border-radius:9px;font-size:13.5px;font-weight:700;cursor:pointer;width:100%">Consultar protocolo</button>
+          </div>
+        </div>
+        <div style="margin-top:40px;text-align:center">
+          <div style="font-size:13px;color:#929090">Precisa de ajuda? Fale pelo WhatsApp ou e-mail:</div>
+          <a href="#" target="_blank" style="display:inline-flex;align-items:center;gap:6px;margin-top:8px;font-size:13px;font-weight:700;color:#25D366;text-decoration:none" data-whatsapp="true" aria-disabled="true" onclick="openWhatsApp(event)" rel="noopener noreferrer">
+            <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"></path></svg><span data-wa-number="true">WhatsApp indisponível</span></a>
+          <div style="font-size:12.5px;color:#929090;margin-top:4px"><a href="mailto:sac@grupochiacchio.com.br" style="color: inherit; text-decoration: none;">sac@grupochiacchio.com.br</a></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== REGISTRAR RECLAMAÇÃO ===== -->
+    <div data-condition="isReclamacaoOrConf" class="portal-condition page" hidden="" id="page-manifestacao">
+      <div style="flex:1;display:flex;justify-content:center;padding:32px 24px 64px;animation:fadeUp .25s ease">
+        <div style="width:100%;max-width:680px">
+
+          <!-- confirmação -->
+          <div data-condition="isConfirmacao" class="portal-condition" hidden="" id="man-success">
+            <div style="background:#fff;border:1.5px solid #A8DFC0;border-radius:16px;padding:40px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:14px">
+              <div style="width:64px;height:64px;background:#EAF4ED;border-radius:50%;display:flex;align-items:center;justify-content:center">
+                <svg width="30" height="30" fill="none" stroke="#1A6632" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </div>
+              <div style="font-size:22px;font-weight:800;color:#1A6632">Reclamação registrada com sucesso!</div>
+              <div style="font-size:14px;color:#545252;line-height:1.7;max-width:460px;text-wrap:pretty">Nossa equipe irá analisar sua manifestação e entrar em contato em breve. Guarde o número de protocolo abaixo.</div>
+              <div style="background:#F4FBF5;border:1.5px solid #A8DFC0;border-radius:12px;padding:16px 24px;display:flex;flex-direction:column;align-items:center;gap:6px;width:100%;max-width:360px">
+                <div style="font-size:10.5px;font-weight:700;letter-spacing:.09em;color:#3A7A4A">NÚMERO DE PROTOCOLO</div>
+                <div style="font-size:24px;font-weight:800;color:#1A6632;letter-spacing:.06em"><span data-bind="protocolo" id="man-protocolo-display"></span></div>
+                <div style="font-size:12px;color:#3A7A4A;text-align:center">Anote ou copie este número. Você precisará dele para acompanhar sua reclamação.</div>
+              </div>
+              <div style="display:flex;gap:10px;width:100%;max-width:360px">
+                <button style="flex:1;height:42px;border:1.5px solid #A8DFC0;background:#fff;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;color:#1A6632;display:flex;align-items:center;justify-content:center;gap:6px" onclick="copiarProtocolo()">
+                  <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                  Copiar protocolo
+                </button>
+                <button style="flex:1;height:42px;border:0;background:#1A6632;color:#fff;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer" onclick="openProtocol()">Acompanhar</button>
+              </div>
+              <button style="border:0;background:none;font-size:13px;color:#929090;cursor:pointer;margin-top:2px" onclick="goTo('page-home')">Voltar ao portal</button>
+            <p id="man-aviso" hidden="" role="status" style="font-size:13px;color:#8A5000;line-height:1.6"></p></div>
+          </div>
+
+          <!-- formulário -->
+          <div data-condition="isReclamacao" class="portal-condition" hidden="" id="man-form-wrap">
+            <div style="margin-bottom:28px">
+              <h2 style="font-size:24px;font-weight:800;margin:0 0 6px">Registrar Manifestação</h2>
+              <div style="font-size:14px;color:#727272;line-height:1.6">Preencha as informações abaixo. Campos com <span style="color:#C70602;font-weight:700">*</span> são obrigatórios.</div>
+            </div>
+
+            <!-- SEÇÃO 1: SEUS DADOS -->
+            <div style="background:#fff;border:1px solid #E0E0E0;border-radius:14px;padding:20px;margin-bottom:14px">
+              <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px">
+                <div style="width:28px;height:28px;border-radius:50%;background:#C70602;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+                  <span style="font-size:13px;font-weight:800;color:#fff">1</span>
+                </div>
+                <div style="font-size:12px;font-weight:800;letter-spacing:.07em;color:#1F1F1F">SEUS DADOS</div>
+              </div>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px" class="portal-two-cols">
+                <label style="display:flex;flex-direction:column;gap:5px;grid-column:1/-1">
+                  <span style="font-size:12px;font-weight:700;color:#545252">Nome completo <span style="color:#C70602">*</span></span>
+                  <input placeholder="Seu nome completo" style="height:42px;border:1.5px solid #E0E0E0;border-radius:9px;padding:0 13px;font-size:13.5px" id="man-nome" maxlength="500">
+                </label>
+                <label style="display:flex;flex-direction:column;gap:5px">
+                  <span style="font-size:12px;font-weight:700;color:#545252">E-mail <span style="color:#C70602">*</span></span>
+                  <input type="email" placeholder="seu@email.com" style="height:42px;border:1.5px solid #E0E0E0;border-radius:9px;padding:0 13px;font-size:13.5px" id="man-email" maxlength="500">
+                </label>
+                <label style="display:flex;flex-direction:column;gap:5px">
+                  <span style="font-size:12px;font-weight:700;color:#545252">Telefone / WhatsApp <span style="color:#C70602">*</span></span>
+                  <input placeholder="(00) 00000-0000" style="height:42px;border:1.5px solid #E0E0E0;border-radius:9px;padding:0 13px;font-size:13.5px" id="man-telefone" maxlength="500">
+                </label>
+              </div>
+            </div>
+
+            <!-- SEÇÃO 2: VÍNCULO -->
+            <div style="background:#fff;border:1px solid #E0E0E0;border-radius:14px;padding:20px;margin-bottom:14px">
+              <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px">
+                <div style="width:28px;height:28px;border-radius:50%;background:#C70602;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+                  <span style="font-size:13px;font-weight:800;color:#fff">2</span>
+                </div>
+                <div style="font-size:12px;font-weight:800;letter-spacing:.07em;color:#1F1F1F">SEU VÍNCULO COM O GRUPO CHIACCHIO</div>
+              </div>
+              <div style="margin-bottom:14px">
+                <div style="font-size:12px;font-weight:700;color:#545252;margin-bottom:8px">Você é <span style="color:#C70602">*</span></div>
+                <div style="display:flex;gap:8px">
+                  <button style="flex:1;height:44px;border:2px solid #E0E0E0;background:#fff;border-radius:9px;font-size:13px;font-weight:700;color:#545252;cursor:pointer" onclick="selectTipoCliente('direto')" data-client-type="direto">Cliente do Grupo Chiacchio</button>
+                  <button style="flex:1;height:44px;border:2px solid #E0E0E0;background:#fff;border-radius:9px;font-size:13px;font-weight:700;color:#545252;cursor:pointer" onclick="selectTipoCliente('indireto')" data-client-type="indireto">Cliente de um cliente nosso</button>
+                </div>
+              </div>
+
+              <!-- cliente direto -->
+              <div data-condition="isClienteDireto" class="portal-condition" hidden="">
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;animation:fadeUp .2s ease" class="portal-two-cols">
+                  <label style="display:flex;flex-direction:column;gap:5px;grid-column:1/-1">
+                    <span style="font-size:12px;font-weight:700;color:#545252">CNPJ <span style="color:#C70602">*</span></span>
+                    <input placeholder="00.000.000/0001-00" style="height:42px;border:1.5px solid #E0E0E0;border-radius:9px;padding:0 13px;font-size:13.5px" id="man-cnpj" maxlength="500">
+                  </label>
+                  <label style="display:flex;flex-direction:column;gap:5px;grid-column:1/-1">
+                    <span style="font-size:12px;font-weight:700;color:#545252">Razão Social / Nome da empresa</span>
+                    <input placeholder="Nome da empresa ou razão social" style="height:42px;border:1.5px solid #E0E0E0;border-radius:9px;padding:0 13px;font-size:13.5px" id="man-razao-social" maxlength="500">
+                  </label>
+                  <label style="display:flex;flex-direction:column;gap:5px">
+                    <span style="font-size:12px;font-weight:700;color:#545252">Empresa do Grupo <span style="color:#C70602">*</span></span>
+                    <select style="height:42px;border:1.5px solid #E0E0E0;border-radius:9px;padding:0 12px;font-size:13.5px" id="man-empresa">
+                      <option value="">Selecionar...</option>
+                      <option value="chiacchio">Chiacchio Embalagens</option>
+                      <option value="plaschio">Plaschio</option>
+                      <option value="tubahia">Cesbap / Tubahia</option>
+                    </select>
+                  </label>
+                  <label style="display:flex;flex-direction:column;gap:5px">
+                    <span style="font-size:12px;font-weight:700;color:#545252">RCA / Representante</span>
+                    <input placeholder="Nome do seu representante" style="height:42px;border:1.5px solid #E0E0E0;border-radius:9px;padding:0 13px;font-size:13.5px" id="man-rca" maxlength="500">
+                  </label>
+                </div>
+              </div>
+
+              <!-- cliente indireto -->
+              <div data-condition="isClienteIndireto" class="portal-condition" hidden="">
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;animation:fadeUp .2s ease" class="portal-two-cols">
+                  <label style="display:flex;flex-direction:column;gap:5px">
+                    <span style="font-size:12px;font-weight:700;color:#545252">CPF <span style="color:#C70602">*</span></span>
+                    <input placeholder="000.000.000-00" style="height:42px;border:1.5px solid #E0E0E0;border-radius:9px;padding:0 13px;font-size:13.5px" id="man-cpf" maxlength="500">
+                  </label>
+                  <label style="display:flex;flex-direction:column;gap:5px">
+                    <span style="font-size:12px;font-weight:700;color:#545252">Onde comprou o produto? <span style="color:#C70602">*</span></span>
+                    <input placeholder="Nome do estabelecimento" style="height:42px;border:1.5px solid #E0E0E0;border-radius:9px;padding:0 13px;font-size:13.5px" id="man-onde-comprou" maxlength="500">
+                  </label>
+                <label style="display: flex; flex-direction: column; gap: 5px; grid-column: 1 / -1;">
+                    <span style="font-size:12px;font-weight:700;color:#545252">Empresa do Grupo <span style="color:#C70602">*</span></span>
+                    <select style="height:42px;border:1.5px solid #E0E0E0;border-radius:9px;padding:0 12px;font-size:13.5px" id="man-empresa-indireto">
+                      <option value="">Selecionar...</option>
+                      <option value="chiacchio">Chiacchio Embalagens</option>
+                      <option value="plaschio">Plaschio</option>
+                      <option value="tubahia">Cesbap / Tubahia</option>
+                    </select>
+                  </label></div>
+              </div>
+            </div>
+
+            <!-- SEÇÃO 3: MANIFESTAÇÃO -->
+            <div style="background:#fff;border:1px solid #E0E0E0;border-radius:14px;padding:20px;margin-bottom:14px">
+              <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px">
+                <div style="width:28px;height:28px;border-radius:50%;background:#C70602;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+                  <span style="font-size:13px;font-weight:800;color:#fff">3</span>
+                </div>
+                <div style="font-size:12px;font-weight:800;letter-spacing:.07em;color:#1F1F1F">SUA MANIFESTAÇÃO</div>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:12px">
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px" class="portal-two-cols">
+                  <label style="display:flex;flex-direction:column;gap:5px">
+                    <span style="font-size:12px;font-weight:700;color:#545252">Mercadoria / Produto <span style="color:#C70602">*</span></span>
+                    <input placeholder="Ex.: Caixa kraft, Bandeja 450ml..." style="height:42px;border:1.5px solid #E0E0E0;border-radius:9px;padding:0 13px;font-size:13.5px" id="man-produto" maxlength="500">
+                  </label>
+                  <label style="display:flex;flex-direction:column;gap:5px">
+                    <span style="font-size:12px;font-weight:700;color:#545252">Motivo da reclamação <span style="color:#C70602">*</span></span>
+                    <select style="height:42px;border:1.5px solid #E0E0E0;border-radius:9px;padding:0 12px;font-size:13.5px" id="man-motivo">
+                      <option value="">Selecionar...</option>
+                      <option value="qualidade">Qualidade do produto</option>
+                      <option value="avaria">Produto avariado / danificado</option>
+                      <option value="entrega">Atraso na entrega</option>
+                      <option value="quantidade">Quantidade divergente</option>
+                      <option value="faturamento">Faturamento incorreto</option>
+                      <option value="atendimento">Atendimento</option>
+                      <option value="outro">Outro</option>
+                    </select>
+                  </label>
+                </div>
+                <label style="display:flex;flex-direction:column;gap:5px">
+                  <span style="font-size:12px;font-weight:700;color:#545252">Nota fiscal (opcional)</span>
+                  <input placeholder="Número da nota fiscal" style="height:42px;border:1.5px solid #E0E0E0;border-radius:9px;padding:0 13px;font-size:13.5px" id="man-nf" maxlength="500">
+                </label>
+                <label style="display:flex;flex-direction:column;gap:5px">
+                  <span style="font-size:12px;font-weight:700;color:#545252">Descrição detalhada <span style="color:#C70602">*</span></span>
+                  <textarea placeholder="Descreva o que aconteceu de forma detalhada. Ex: &quot;Recebi 40 caixas e 12 estavam amassadas. Produto com cola insuficiente na aba lateral.&quot;" rows="5" style="border:1.5px solid #E0E0E0;border-radius:9px;padding:11px 13px;font-size:13.5px;line-height:1.65;resize:vertical" id="man-descricao"></textarea>
+                  <span style="font-size:11px;color:#A0A0A0">Seu relato será preservado como registro original.</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- SEÇÃO 4: EVIDÊNCIAS -->
+            <div style="background:#fff;border:1px solid #E0E0E0;border-radius:14px;padding:20px;margin-bottom:18px">
+              <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px">
+                <svg width="16" height="16" fill="none" stroke="#545252" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"></path></svg>
+                <div style="font-size:12px;font-weight:800;letter-spacing:.07em;color:#1F1F1F">EVIDÊNCIAS E ANEXOS</div>
+                <span style="font-size:11px;color:#929090">· Não obrigatório</span>
+              </div>
+              <div style="border:2px dashed #D0D0D0;border-radius:10px;padding:22px;text-align:center;cursor:pointer;background:#FAFAFA" onclick="document.getElementById('man-evidencias').click()" id="man-dropzone" tabindex="0" role="button" aria-label="Anexar evidências">
+                <svg width="24" height="24" fill="none" stroke="#A0A0A0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin:0 auto 8px;display:block" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                <div style="font-size:13px;font-weight:600;color:#545252;margin-bottom:3px">Clique ou arraste arquivos aqui</div>
+                <div style="font-size:11.5px;color:#A0A0A0">Fotos JPG, PNG, WebP ou PDF — até 8 arquivos, somando no máximo 3 MB</div>
+              </div><input id="man-evidencias" type="file" multiple="" accept="image/jpeg,image/png,image/webp,application/pdf" hidden=""><div id="man-arquivos" style="font-size:12px;margin-top:8px;color:#727272" aria-live="polite"></div>
+            </div>
+
+            <!-- erro -->
+            <div data-condition="rErro" class="portal-condition" hidden="" id="man-error" role="alert">
+              <div style="background:#FFF5F5;border:1.5px solid #F5CCCC;border-radius:9px;padding:12px 15px;display:flex;gap:8px;align-items:center;margin-bottom:12px">
+                <svg width="14" height="14" fill="none" stroke="#C70602" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                <span style="font-size:13px;color:#C70602"><span data-bind="rErro"></span></span>
+              </div>
+            </div>
+
+            <!-- enviar -->
+            <details style="margin: 0px 0px 18px; color: rgb(84, 82, 82); font-size: 12px;"><summary style="cursor:pointer">Mais informações (opcional)</summary><div class="portal-two-cols" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px"><label>Tipo de manifestação<select id="man-tipo" style="width:100%;height:42px;border:1.5px solid #E0E0E0;border-radius:9px;padding:0 12px"><option>Reclamação</option><option>Sugestão</option><option>Elogio</option><option>Solicitação</option></select></label><label>Solicitação ou expectativa<input id="man-solicitacao" maxlength="1000" style="width:100%;height:42px;border:1.5px solid #E0E0E0;border-radius:9px;padding:0 12px"></label></div></details><button style="width:100%;height:52px;border:0;background:#C70602;color:#fff;border-radius:11px;font-size:15px;font-weight:800;cursor:pointer;letter-spacing:.02em;display:flex;align-items:center;justify-content:center;gap:8px" onclick="submitManifestacao()" id="man-submit">
+              <div data-condition="rEnviando" class="portal-condition" hidden="">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="animation:pulse 1s infinite" viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>
+                Enviando...
+              </div>
+              <div data-condition="rNaoEnviando" class="portal-condition">ENVIAR AO SAC</div>
+            </button>
+            <div style="text-align:center;font-size:12px;color:#A0A0A0;margin-top:8px">Ao enviar, a manifestação será encaminhada ao SAC e uma ficha oficial será gerada.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== PESQUISA ===== -->
+    <div data-condition="isPesquisaOrOk" class="portal-condition page" hidden="" id="page-pesquisa">
+      <div style="flex:1;display:flex;justify-content:center;padding:32px 24px 64px;animation:fadeUp .25s ease">
+        <div style="width:100%;max-width:620px">
+          <div data-condition="isPesquisaOk" class="portal-condition" hidden="" id="pesq-success">
+            <div style="background:#fff;border:1.5px solid #A8DFC0;border-radius:16px;padding:40px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:14px">
+              <div style="width:64px;height:64px;background:#EAF4ED;border-radius:50%;display:flex;align-items:center;justify-content:center">
+                <svg width="30" height="30" fill="none" stroke="#1A6632" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </div>
+              <div style="font-size:22px;font-weight:800;color:#1A6632">Pesquisa enviada!</div>
+              <div id="pesq-confirmation-text" style="font-size:14px;color:#545252;line-height:1.65;max-width:420px">Obrigado pela sua resposta. Sua opinião contribui para melhorarmos continuamente nosso atendimento.</div>
+              <button style="height:44px;border:0;background:#1A6632;color:#fff;border-radius:9px;padding:0 30px;font-size:13.5px;font-weight:700;cursor:pointer" onclick="goTo('page-home')">Voltar ao portal</button>
+            </div>
+          </div>
+          <div data-condition="isPesquisa" class="portal-condition" hidden="" id="pesq-form-wrap"><div id="surveyCards" style="margin-bottom:14px"><label style="display:flex;flex-direction:column;gap:6px;font-size:12px;font-weight:700;color:#545252">Pesquisa / Empresa<select id="pesq-empresa" style="height:42px;border:1.5px solid #E0E0E0;border-radius:9px;padding:0 12px" onchange="selectPesquisaEmpresa()"><option value="">Carregando pesquisas…</option></select></label></div><p id="pesq-error" class="portal-error" role="alert" hidden></p><div id="pesq-dinamica"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== PROTOCOLO ===== -->
+    <div data-condition="isProtocolo" class="portal-condition page" hidden="" id="page-protocolo">
+      <div style="flex:1;display:flex;justify-content:center;padding:32px 24px 64px;animation:fadeUp .25s ease">
+        <div style="width:100%;max-width:640px">
+          <div style="margin-bottom:24px">
+            <h2 style="font-size:24px;font-weight:800;margin:0 0 6px">Acompanhar minha reclamação</h2>
+            <div style="font-size:14px;color:#727272">Informe o número do protocolo recebido no momento do registro.</div>
+          </div>
+          <div style="background:#fff;border:1px solid #E0E0E0;border-radius:14px;padding:20px;margin-bottom:14px">
+            <label style="display:flex;flex-direction:column;gap:6px">
+              <span style="font-size:12px;font-weight:700;color:#545252">Número do protocolo</span>
+              <div style="display:flex;gap:8px">
+                <input placeholder="CHI-… · PLAS-… · TUB-…" style="flex:1;height:46px;border:1.5px solid #E0E0E0;border-radius:9px;padding:0 14px;font-size:14px;font-weight:600;letter-spacing:.02em" id="prot-input" maxlength="50" aria-label="Número do protocolo">
+                <button style="height:46px;border:0;background:#24508F;color:#fff;border-radius:9px;padding:0 20px;font-size:13.5px;font-weight:700;cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:6px" onclick="buscarProtocolo()" id="prot-btn">
+                  <div data-condition="pBuscando" class="portal-condition" hidden=""><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="animation:pulse 1s infinite" viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg></div>
+                  <div data-condition="pNaoBuscando" class="portal-condition"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></div>
+                  Consultar
+                </button>
+              </div>
+              <div style="font-size:11.5px;color:#A0A0A0">Utilize o protocolo recebido ao registrar sua manifestação.</div>
+            </label>
+            <label style="display:flex;flex-direction:column;gap:6px;margin-top:14px;font-size:12px;color:#545252">E-mail ou telefone cadastrado (para protocolos antigos)
+              <input id="prot-confirmacao" maxlength="200" autocomplete="off" style="height:44px;border:1.5px solid #E0E0E0;border-radius:9px;padding:0 14px;font-size:13px" aria-label="E-mail ou telefone cadastrado">
+              <span>Se o protocolo antigo não tiver contato cadastrado, solicite ajuda ao SAC.</span>
+            </label>
+          </div>
+          <div data-condition="pResultado" class="portal-condition" hidden="" id="prot-result">
+            <div style="background:#fff;border:1px solid #EBEBEB;border-radius:14px;overflow:hidden;animation:fadeUp .2s ease">
+              <div style="padding:16px 20px;background:#EAF0FB;border-bottom:1px solid #C8DCEF;display:flex;align-items:center;gap:12px">
+                <div style="width:42px;height:42px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+                  <svg width="18" height="18" fill="none" stroke="#24508F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                </div>
+                <div><div style="font-size:15px;font-weight:800;color:#24508F" id="prot-status-text"></div><div style="font-size:12px;color:#24508F;margin-top:2px;opacity:.8"><span data-bind="pProtocolo" id="prot-id"></span></div></div>
+              </div>
+              <div style="padding:18px 20px;display:flex;flex-direction:column;gap:14px">
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px 20px" class="portal-two-cols">
+                  <div style="display: contents;"><div><div style="font-size:10px;font-weight:700;letter-spacing:.06em;color:#A0A0A0;margin-bottom:2px">EMPRESA</div><div style="font-size:13px;font-weight:600" id="prot-empresa">—</div></div><div><div style="font-size:10px;font-weight:700;letter-spacing:.06em;color:#A0A0A0;margin-bottom:2px">DATA DE ABERTURA</div><div style="font-size:13px;font-weight:600" id="prot-data">—</div></div><div><div style="font-size:10px;font-weight:700;letter-spacing:.06em;color:#A0A0A0;margin-bottom:2px">TIPO</div><div style="font-size:13px;font-weight:600" id="prot-tipo">—</div></div><div><div style="font-size:10px;font-weight:700;letter-spacing:.06em;color:#A0A0A0;margin-bottom:2px">ÚLTIMA ATUALIZAÇÃO</div><div style="font-size:13px;font-weight:600" id="prot-atualizacao">—</div></div></div>
+                </div>
+                <div>
+                  <div style="font-size:10.5px;font-weight:700;letter-spacing:.07em;color:#A0A0A0;margin-bottom:10px">HISTÓRICO</div>
+                  <div id="prot-history" style="display: contents;"></div>
+                </div>
+              </div>
+            <section id="prot-devolutiva-wrap" hidden="" style="padding:0 20px 20px"><h3 style="font-size:14px">Resposta oficial do SAC</h3><p id="prot-devolutiva" style="margin-top:8px;white-space:pre-wrap;overflow-wrap:anywhere;font-size:13px;line-height:1.65"></p></section></div>
+          </div>
+          <div data-condition="pNaoEncontrado" class="portal-condition" hidden="" id="prot-error">
+            <div style="background:#FFF5F5;border:1.5px solid #F5CCCC;border-radius:12px;padding:22px;text-align:center;animation:fadeUp .2s ease" id="prot-error-message">
+              <svg width="32" height="32" fill="none" stroke="#C70602" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin:0 auto 10px;display:block" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+              <div style="font-size:15px;font-weight:700;color:#C70602;margin-bottom:6px">Protocolo não encontrado</div>
+              <div style="font-size:13px;color:#545252;line-height:1.6">Verifique o número digitado e utilize o protocolo recebido ao registrar sua manifestação.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- RODAPÉ -->
+  <footer style="background:#fff;border-top:1px solid #E8E8E8;padding:18px 28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;flex-shrink:0">
+    <div style="font-size:12px;color:#929090">© 2026 Grupo Chiacchio · Gestão de Manifestações</div>
+    <div style="display:flex;align-items:center;gap:14px">
+      <a href="#" target="_blank" style="display:flex;align-items:center;gap:5px;font-size:12px;color:#25D366;font-weight:600;text-decoration:none" data-whatsapp="true" aria-disabled="true" onclick="openWhatsApp(event)" rel="noopener noreferrer">
+        <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"></path></svg><span data-wa-number="true">WhatsApp indisponível</span></a>
+      <span style="font-size:12px;color:#929090"><a href="mailto:sac@grupochiacchio.com.br" style="color: inherit; text-decoration: none;">sac@grupochiacchio.com.br</a></span>
+    </div>
+  </footer>
+</div>
+
+<div data-condition="toast" class="portal-condition" hidden="" id="portal-toast" role="status">
+  <div style="position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:#1F1F1F;color:#fff;padding:10px 18px;border-radius:9px;font-size:13px;z-index:99;box-shadow:0 8px 24px rgba(0,0,0,.2);max-width:92vw;text-align:center"><span data-bind="toast"></span></div>
+</div>
+
+
+
+
+
+<script>
+async function lerEvidencias() {
+  const files = Array.from(document.getElementById('man-evidencias').files || []);
+  if (files.length > 8) throw new Error('Selecione até 8 arquivos.');
+  if (files.reduce((total, file) => total + file.size, 0) > 3 * 1024 * 1024) throw new Error('Os anexos devem somar no máximo 3 MB.');
+  const tipos = ['image/jpeg', 'image/png', 'image/webp', 'application/pdf'];
+  if (files.some(file => !tipos.includes(file.type) || !file.size)) throw new Error('Selecione fotos JPG, PNG, WebP ou PDF válidos.');
+  return Promise.all(files.map(file => new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onerror = () => reject(new Error('Não foi possível ler o arquivo. Selecione-o novamente.'));
+    reader.onload = () => resolve({ nome: file.name, tipo: file.type, tamanho: file.size, dados: String(reader.result).split(',')[1] });
+    reader.readAsDataURL(file);
+  })));
+}
+
+
+// O HTML e os estilos seguem o modelo fornecido; os dados vêm das APIs do SAC.
+const ui = { tela: 'inicio', tipoCliente: '', rEnviando: false, pBuscando: false, rErro: '', pErro: '', pResultado: false, toast: '' };
+let lastProtocol = '', lookupProtocol = '', _waNumero = '', _waMensagem = '', toastTimer;
+const el = id => document.getElementById(id);
+const value = id => el(id).value.trim();
+
+function renderView() {
+  const flags = {
+    isInicio: ui.tela === 'inicio', notInicio: ui.tela !== 'inicio',
+    isReclamacaoOrConf: ['reclamacao', 'confirmacao'].includes(ui.tela),
+    isReclamacao: ui.tela === 'reclamacao', isConfirmacao: ui.tela === 'confirmacao',
+    isPesquisaOrOk: ['pesquisa', 'pesquisaOk'].includes(ui.tela),
+    isPesquisa: ui.tela === 'pesquisa', isPesquisaOk: ui.tela === 'pesquisaOk',
+    isProtocolo: ui.tela === 'protocolo', isClienteDireto: ui.tipoCliente === 'direto',
+    isClienteIndireto: ui.tipoCliente === 'indireto', rErro: !!ui.rErro,
+    rEnviando: ui.rEnviando, rNaoEnviando: !ui.rEnviando,
+    pBuscando: ui.pBuscando, pNaoBuscando: !ui.pBuscando,
+    pResultado: ui.pResultado, pNaoEncontrado: !!ui.pErro, toast: !!ui.toast,
+  };
+  document.querySelectorAll('[data-condition]').forEach(node => {
+    const visible = !!flags[node.dataset.condition];
+    node.hidden = !visible;
+    node.classList.toggle('visible', visible);
+    if (node.classList.contains('page')) node.classList.toggle('active', visible);
+  });
+  const binds = { protocolo: lastProtocol, pProtocolo: lookupProtocol, rErro: ui.rErro, toast: ui.toast };
+  document.querySelectorAll('[data-bind]').forEach(node => { node.textContent = binds[node.dataset.bind] || ''; });
+  document.querySelectorAll('[data-client-type]').forEach(button => {
+    const selected = button.dataset.clientType === ui.tipoCliente;
+    button.style.borderColor = selected ? '#C70602' : '#E0E0E0';
+    button.style.background = selected ? '#FDECEC' : '#fff';
+    button.style.color = selected ? '#A80502' : '#545252';
+    button.setAttribute('aria-pressed', String(selected));
+  });
+  el('man-submit').disabled = ui.rEnviando;
+  el('prot-btn').disabled = ui.pBuscando;
+}
+
+function goTo(pageId) {
+  ui.tela = { 'page-home': 'inicio', 'page-manifestacao': 'reclamacao', 'page-pesquisa': 'pesquisa', 'page-protocolo': 'protocolo' }[pageId] || 'inicio';
+  ui.rErro = ''; ui.pErro = ''; ui.pResultado = false;
+  el('pesq-error').hidden = true;
+  renderView();
+  window.scrollTo({ top: 0, behavior: 'instant' });
+}
+function openProtocol() { goTo('page-protocolo'); if (lastProtocol) el('prot-input').value = lastProtocol; }
+function selectTipoCliente(tipo) { ui.tipoCliente = tipo; ui.rErro = ''; renderView(); }
+function flash(message) {
+  ui.toast = message; clearTimeout(toastTimer); renderView();
+  toastTimer = setTimeout(() => { ui.toast = ''; renderView(); }, 3500);
+}
+async function copiarProtocolo() {
+  try { await navigator.clipboard.writeText(lastProtocol); flash('Protocolo copiado!'); }
+  catch (_) { flash('Não foi possível copiar. Selecione o protocolo e copie-o.'); }
+}
+async function apiJson(url, options) {
+  const response = await fetch(url, {...options, credentials:'omit', cache:'no-store'});
+  let data;
+  try { data = await response.json(); }
+  catch (_) { throw new Error('O serviço está indisponível. Tente novamente em instantes.'); }
+  if (!response.ok || !data.sucesso) {
+    const error = new Error(data.erro || 'Não foi possível concluir. Tente novamente.');
+    error.status = response.status; throw error;
+  }
+  return data;
+}
+
+let surveyCatalog = [], surveyToken = '';
+async function loadSurveyCards() {
+  const match = location.pathname.match(/^(?:\/portal)?\/pesquisas\/([A-Za-z0-9_-]+)\/?$/);
+  const legacy = location.pathname.match(/^\/pesquisa\/([A-Za-z0-9_-]+)/);
+  surveyToken = new URLSearchParams(location.search).get('convite') || new URLSearchParams(location.search).get('t') || '';
+  try {
+    if (!match && !legacy && surveyToken) {
+      goTo('page-pesquisa'); el('surveyCards').hidden = true;
+      const data = await apiJson('/api/public/pesquisa-convite/' + encodeURIComponent(surveyToken));
+      renderPublishedSurvey(data.formulario); return;
+    }
+    if (match || legacy) {
+      goTo('page-pesquisa'); el('surveyCards').hidden = true;
+      let id = match?.[1] || legacy?.[1];
+      if (id === 'cesbap') id = 'tubahia';
+      if (legacy && !['chiacchio','plaschio','tubahia'].includes(id)) {
+        surveyToken = id;
+        const data = await apiJson('/api/public/pesquisa-convite/' + encodeURIComponent(id));
+        renderPublishedSurvey(data.formulario); return;
+      }
+      await loadPublishedSurvey(id); return;
+    }
+    const data = await apiJson('/api/public/pesquisas');
+    surveyCatalog = data.itens || [];
+    const select = el('pesq-empresa'); select.replaceChildren(new Option('Selecione a pesquisa…',''));
+    surveyCatalog.forEach(f => select.add(new Option(f.titulo + ' · ' + f.empresaNome, f.id)));
+    select.disabled = !surveyCatalog.length;
+    if (select.disabled) throw new Error('Não há pesquisas publicadas no momento.');
+  } catch (error) { el('pesq-error').textContent = error.message; el('pesq-error').hidden = false; }
+}
+async function loadPublishedSurvey(id) {
+  el('pesq-error').hidden = true; el('pesq-dinamica').textContent = 'Carregando pesquisa…';
+  const query = surveyToken ? '?convite=' + encodeURIComponent(surveyToken) : '';
+  try { const data = await apiJson('/api/public/pesquisas/' + encodeURIComponent(id) + query); renderPublishedSurvey(data.formulario); }
+  catch(error) { el('pesq-dinamica').textContent = ''; el('pesq-error').textContent = error.message; el('pesq-error').hidden = false; }
+}
+function selectPesquisaEmpresa() { if (value('pesq-empresa')) loadPublishedSurvey(value('pesq-empresa')); }
+function renderPublishedSurvey(form) {
+  SACSurvey.render(el('pesq-dinamica'), form, {onSubmit:async payload => {
+    const result = await apiJson('/api/pesquisas/resposta-portal', {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({...payload,token:surveyToken||undefined})});
+    const confirmation = el('pesq-confirmation-text');
+    if (confirmation) confirmation.textContent = form.agradecimento || 'Obrigado pela sua resposta.';
+    el('pesq-empresa').value = ''; ui.tela = 'pesquisaOk'; renderView(); window.scrollTo({top:0,behavior:'instant'});
+    return result;
+  }});
+}
+
+async function submitManifestacao() {
+  if (ui.rEnviando) return;
+  ui.rErro = '';
+  try {
+    if (!value('man-nome')) throw new Error('Informe seu nome completo.');
+    if (!value('man-email') || !el('man-email').checkValidity()) throw new Error('Informe um e-mail válido.');
+    if (!value('man-telefone')) throw new Error('Informe seu telefone / WhatsApp.');
+    if (!ui.tipoCliente) throw new Error('Informe seu vínculo com o Grupo Chiacchio.');
+    const direto = ui.tipoCliente === 'direto';
+    if (direto && !value('man-cnpj')) throw new Error('Informe o CNPJ.');
+    if (!direto && !value('man-cpf')) throw new Error('Informe seu CPF.');
+    if (!direto && !value('man-onde-comprou')) throw new Error('Informe onde comprou o produto.');
+    const empresa = value(direto ? 'man-empresa' : 'man-empresa-indireto');
+    if (!empresa) throw new Error('Selecione a empresa do Grupo Chiacchio.');
+    if (!value('man-produto')) throw new Error('Informe a mercadoria / produto.');
+    if (!value('man-motivo')) throw new Error('Selecione o motivo da reclamação.');
+    if (value('man-descricao').length < 10) throw new Error('Descreva a manifestação com pelo menos 10 caracteres.');
+    ui.rEnviando = true; renderView();
+    const evidencias = await lerEvidencias();
+    const data = await apiJson('/api/public/reclamacoes', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ empresa, nomeCliente: value('man-nome'), email: value('man-email'), telefone: value('man-telefone'),
+        tipoCliente: ui.tipoCliente, cnpj: direto ? value('man-cnpj') : '', cpf: direto ? '' : value('man-cpf'),
+        razaoSocial: direto ? value('man-razao-social') : '', rca: direto ? value('man-rca') : '', ondeComprou: direto ? '' : value('man-onde-comprou'),
+        tipoManifestacao: value('man-tipo'), produto: value('man-produto'),
+        motivoManifestacao: el('man-motivo').selectedOptions[0].textContent, notaFiscal: value('man-nf'),
+        descricaoOriginal: value('man-descricao'), observacoes: value('man-solicitacao'), evidencias,
+        colaboradorRecebimento: 'Portal do Cliente', setorRecebimento: 'SAC', canalRecebimento: 'Portal do Cliente', origem: 'PORTAL_PUBLICO' }),
+    });
+    lastProtocol = data.protocolo;
+    el('man-aviso').textContent = data.aviso || ''; el('man-aviso').hidden = !data.aviso;
+    ui.tela = 'confirmacao'; window.scrollTo({ top: 0, behavior: 'instant' });
+  } catch (error) { ui.rErro = error.message || 'Não foi possível registrar. Tente novamente.'; }
+  finally { ui.rEnviando = false; renderView(); }
+}
+
+function formatDate(date, time = false) {
+  if (!date || !Number.isFinite(new Date(date).getTime())) return '—';
+  return time ? new Date(date).toLocaleString('pt-BR') : new Date(date).toLocaleDateString('pt-BR');
+}
+function renderHistory(data) {
+  const history = el('prot-history'); history.replaceChildren();
+  const entries = [];
+  if (data.dataAtualizacao && data.dataAtualizacao !== data.dataAbertura) entries.push([data.dataAtualizacao, data.descricaoStatus || data.status, '#24508F']);
+  if (data.dataAbertura) entries.push([data.dataAbertura, 'Manifestação registrada e protocolo gerado', '#C70602']);
+  if (!entries.length) entries.push(['', data.descricaoStatus || data.status, '#24508F']);
+  for (const [date, description, color] of entries) {
+    const row = document.createElement('div'); row.style = 'display:grid;grid-template-columns:12px 1fr;gap:10px';
+    const marker = document.createElement('div'); marker.style = 'display:flex;flex-direction:column;align-items:center';
+    const dot = document.createElement('span'); dot.style = 'width:9px;height:9px;border-radius:50%;flex-shrink:0;margin-top:3px;background:' + color;
+    const line = document.createElement('span'); line.style = 'flex:1;width:1.5px;background:#EBEBEB;margin-top:3px';
+    marker.append(dot, line);
+    const text = document.createElement('div'); text.style = 'padding-bottom:12px';
+    const stamp = document.createElement('div'); stamp.style = 'font-size:11px;color:#A0A0A0'; stamp.textContent = formatDate(date, true);
+    const summary = document.createElement('div'); summary.style = 'font-size:13px;color:#2A2A2A;margin-top:1px'; summary.textContent = description;
+    text.append(stamp, summary); row.append(marker, text); history.append(row);
+  }
+}
+async function buscarProtocolo() {
+  if (ui.pBuscando) return;
+  ui.pErro = ''; ui.pResultado = false;
+  try {
+    const protocolo = value('prot-input').toUpperCase();
+    if (!protocolo) throw new Error('Informe o número do protocolo.');
+    ui.pBuscando = true; renderView();
+    const data = await apiJson('/api/public/protocolo/consultar', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({protocolo, identificador:value('prot-confirmacao')})});
+    lookupProtocol = data.protocolo;
+    el('prot-status-text').textContent = data.status;
+    el('prot-empresa').textContent = data.empresa || '—';
+    el('prot-data').textContent = formatDate(data.dataAbertura);
+    el('prot-tipo').textContent = data.tipo || '—';
+    el('prot-atualizacao').textContent = formatDate(data.dataAtualizacao);
+    el('prot-devolutiva').textContent = data.devolutiva || '';
+    el('prot-devolutiva-wrap').hidden = !data.devolutiva;
+    renderHistory(data); ui.pResultado = true;
+  } catch (error) {
+    ui.pErro = error.message;
+    const box = el('prot-error').firstElementChild;
+    box.children[1].textContent = error.status === 404 ? 'Protocolo não encontrado' : 'Não foi possível consultar';
+    box.children[2].textContent = error.message;
+  } finally { ui.pBuscando = false; renderView(); }
+}
+
+function whatsappUrl() {
+  const numero = _waNumero.length >= 12 && _waNumero.startsWith('55') ? _waNumero : '55' + _waNumero;
+  return 'https://wa.me/' + numero + '?text=' + encodeURIComponent(_waMensagem);
+}
+async function loadWhatsApp() {
+  try {
+    const data = await apiJson('/api/public/whatsapp');
+    if (!data.ativo || !data.numero) return;
+    _waNumero = String(data.numero).replace(/\D/g, ''); _waMensagem = data.mensagem || 'Olá, preciso de ajuda.';
+    document.querySelectorAll('[data-whatsapp]').forEach(a => { a.href = whatsappUrl(); a.setAttribute('aria-disabled', 'false'); });
+    document.querySelectorAll('[data-wa-number]').forEach(node => { node.textContent = String(data.numero); });
+  } catch (_) { /* O e-mail permanece disponível quando o WhatsApp está inativo. */ }
+}
+function openWhatsApp(event) {
+  event.preventDefault();
+  if (!_waNumero) { flash('O WhatsApp está indisponível. Entre em contato por e-mail.'); return; }
+  window.open(whatsappUrl(), '_blank', 'noopener,noreferrer');
+}
+function updateFiles() {
+  el('man-arquivos').textContent = Array.from(el('man-evidencias').files).map(file => file.name).join(' · ');
+}
+el('man-evidencias').addEventListener('change', updateFiles);
+el('man-dropzone').addEventListener('dragover', event => event.preventDefault());
+el('man-dropzone').addEventListener('drop', event => { event.preventDefault(); el('man-evidencias').files = event.dataTransfer.files; updateFiles(); });
+el('man-dropzone').addEventListener('keydown', event => { if (['Enter', ' '].includes(event.key)) { event.preventDefault(); el('man-evidencias').click(); } });
+el('prot-input').addEventListener('keydown', event => { if (event.key === 'Enter') { event.preventDefault(); buscarProtocolo(); } });
+renderView(); loadSurveyCards(); loadWhatsApp();
+
+</script>
+</body></html>
