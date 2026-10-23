@@ -674,6 +674,7 @@ async function lerEvidencias() {
 // O HTML e os estilos seguem o modelo fornecido; os dados vêm das APIs do SAC.
 const ui = { tela: 'inicio', tipoCliente: '', rEnviando: false, pBuscando: false, rErro: '', pErro: '', pResultado: false, toast: '' };
 let lastProtocol = '', lookupProtocol = '', _waNumero = '', _waMensagem = '', toastTimer;
+let manifestacaoEnvioId = crypto.randomUUID();
 const el = id => document.getElementById(id);
 const value = id => el(id).value.trim();
 
@@ -710,6 +711,7 @@ function renderView() {
 }
 
 function goTo(pageId) {
+  if (pageId === 'page-manifestacao' && ui.tela !== 'reclamacao') manifestacaoEnvioId = crypto.randomUUID();
   ui.tela = { 'page-home': 'inicio', 'page-manifestacao': 'reclamacao', 'page-pesquisa': 'pesquisa', 'page-protocolo': 'protocolo' }[pageId] || 'inicio';
   ui.rErro = ''; ui.pErro = ''; ui.pResultado = false;
   el('pesq-error').hidden = true;
@@ -812,6 +814,7 @@ async function submitManifestacao() {
         tipoManifestacao: value('man-tipo'), produto: value('man-produto'),
         motivoManifestacao: el('man-motivo').selectedOptions[0].textContent, notaFiscal: value('man-nf'),
         descricaoOriginal: value('man-descricao'), observacoes: value('man-solicitacao'), evidencias,
+        idempotencyKey: manifestacaoEnvioId,
         colaboradorRecebimento: 'Portal do Cliente', setorRecebimento: 'SAC', canalRecebimento: 'Portal do Cliente', origem: 'PORTAL_PUBLICO' }),
     });
     lastProtocol = data.protocolo;
