@@ -727,6 +727,11 @@ function goTo(pageId) {
   if (pageId === 'page-manifestacao' && ui.tela !== 'reclamacao') manifestacaoEnvioId = crypto.randomUUID();
   ui.tela = { 'page-home': 'inicio', 'page-manifestacao': 'reclamacao', 'page-pesquisa': 'pesquisa', 'page-protocolo': 'protocolo' }[pageId] || 'inicio';
   ui.rErro = ''; ui.pErro = ''; ui.pResultado = false;
+  if (pageId === 'page-pesquisa') {
+    el('surveyCards').hidden = false;
+    el('pesq-dinamica').replaceChildren();
+    el('pesq-error').hidden = true;
+  }
   el('pesq-error').hidden = true;
   renderView();
   window.scrollTo({ top: 0, behavior: 'instant' });
@@ -817,6 +822,9 @@ function renderSurveyCards(items) {
   });
 }
 async function loadPublishedSurvey(id) {
+  // A seleção é apenas a etapa anterior. Ao iniciar uma pesquisa, remova-a
+  // da renderização para não exibir cards antigos junto do questionário.
+  el('surveyCards').hidden = true;
   el('pesq-error').hidden = true; el('pesq-dinamica').textContent = 'Carregando pesquisa…';
   const query = surveyToken ? '?convite=' + encodeURIComponent(surveyToken) : '';
   try { const data = await apiJson('/api/public/pesquisas/' + encodeURIComponent(id) + query); renderPublishedSurvey(data.formulario); }
