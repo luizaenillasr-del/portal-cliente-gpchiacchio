@@ -277,7 +277,7 @@ button:disabled { cursor:wait !important; opacity:.65; }
 <link rel="stylesheet" href="/assets/pesquisa-formulario.css">
 <script src="/assets/pesquisa-formulario.js"></script>
 <style>
-.survey-selection-heading{text-align:center;margin:0 0 36px}.survey-selection-kicker{font-size:11px;font-weight:700;letter-spacing:.12em;color:#C70602;margin-bottom:8px;text-transform:uppercase}.survey-selection-heading h2{font-size:22px;line-height:1.2;font-weight:800;color:#242424;margin:0 0 10px}.survey-selection-heading p{font-size:13.5px;line-height:1.65;color:#929090;max-width:500px;margin:0 auto}.survey-cards-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-bottom:40px}.survey-card{display:flex;flex-direction:column;align-items:center;text-align:center;min-height:250px;padding:28px 24px;background:#fff;border:1px solid #E5E5E5;border-radius:10px;transition:border-color .15s,box-shadow .15s}.survey-card:hover,.survey-card:focus-within{border-color:#C70602;box-shadow:0 4px 16px rgba(0,0,0,.07)}.survey-card-logo-wrap{height:56px;display:flex;align-items:center;justify-content:center;margin-bottom:18px}.survey-card-logo{max-height:52px;max-width:160px;width:auto;object-fit:contain}.survey-card-name{font-size:14px;font-weight:800;color:#242424;margin-bottom:8px}.survey-card-copy{flex:1;font-size:12.5px;line-height:1.6;color:#929090;margin:0 0 20px}.survey-card-button{width:100%;height:40px;border:0;border-radius:8px;background:#C70602;color:#fff;font:700 12.5px Montserrat,Arial,sans-serif;cursor:pointer}.survey-cards-state{text-align:center;color:#929090;font-size:13px;padding:28px;grid-column:1/-1;background:#fff;border:1px solid #E5E5E5;border-radius:10px}.survey-cards-state.error{color:#A80502;background:#FFF5F5;border-color:#F5CCCC}#pesq-dinamica,#pesq-success,#pesq-error{max-width:620px;margin-left:auto;margin-right:auto}@media(max-width:900px){.survey-cards-grid{grid-template-columns:1fr 1fr}}@media(max-width:600px){.survey-cards-grid{grid-template-columns:1fr}.survey-selection-heading h2{font-size:20px}}
+.survey-selection-heading{text-align:center;margin:0 0 36px}.survey-selection-kicker{font-size:11px;font-weight:700;letter-spacing:.12em;color:#C70602;margin-bottom:8px;text-transform:uppercase}.survey-selection-heading h2{font-size:22px;line-height:1.2;font-weight:800;color:#242424;margin:0 0 10px}.survey-selection-heading p{font-size:13.5px;line-height:1.65;color:#929090;max-width:500px;margin:0 auto}.survey-cards-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-bottom:40px}.survey-card{display:flex;flex-direction:column;overflow:hidden;text-align:left;min-height:340px;background:#fff;border:1px solid #E5E5E5;border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,.04);transition:border-color .15s,box-shadow .15s}.survey-card:hover,.survey-card:focus-within{border-color:var(--survey-color,#C70602);box-shadow:0 4px 16px rgba(0,0,0,.09)}.survey-card-logo-wrap{height:116px;display:flex;align-items:center;justify-content:center;padding:24px;background:#fff;border-bottom:1px solid #F0F0F0}.survey-card-logo{max-height:60px;max-width:190px;width:auto;object-fit:contain}.survey-card-content{display:flex;flex:1;flex-direction:column;padding:22px 24px 24px;background:var(--survey-color,#C70602);color:#fff}.survey-card-kicker{font-size:11px;font-weight:700;color:rgba(255,255,255,.75);letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px}.survey-card-name{font-size:15px;font-weight:800;color:#fff;margin-bottom:10px}.survey-card-copy{flex:1;font-size:12.5px;line-height:1.6;color:rgba(255,255,255,.85);margin:0 0 18px}.survey-card-facts{display:flex;flex-wrap:wrap;gap:8px 14px;margin-bottom:18px}.survey-card-fact{font-size:11px;color:rgba(255,255,255,.75)}.survey-card-button{width:100%;padding:11px;border:0;border-radius:8px;background:#fff;color:var(--survey-color,#C70602);font:700 13px Montserrat,Arial,sans-serif;cursor:pointer;transition:background .15s}.survey-card-button:hover,.survey-card-button:focus-visible{background:#F5F5F5}.survey-cards-state{text-align:center;color:#929090;font-size:13px;padding:28px;grid-column:1/-1;background:#fff;border:1px solid #E5E5E5;border-radius:10px}.survey-cards-state.error{color:#A80502;background:#FFF5F5;border-color:#F5CCCC}#pesq-dinamica,#pesq-success,#pesq-error{max-width:620px;margin-left:auto;margin-right:auto}@media(max-width:900px){.survey-cards-grid{grid-template-columns:1fr 1fr}}@media(max-width:600px){.survey-cards-grid{grid-template-columns:1fr}.survey-selection-heading h2{font-size:20px}}
 </style>
 </head>
 <body>
@@ -727,6 +727,11 @@ function goTo(pageId) {
   if (pageId === 'page-manifestacao' && ui.tela !== 'reclamacao') manifestacaoEnvioId = crypto.randomUUID();
   ui.tela = { 'page-home': 'inicio', 'page-manifestacao': 'reclamacao', 'page-pesquisa': 'pesquisa', 'page-protocolo': 'protocolo' }[pageId] || 'inicio';
   ui.rErro = ''; ui.pErro = ''; ui.pResultado = false;
+  if (pageId === 'page-pesquisa') {
+    el('surveyCards').hidden = false;
+    el('pesq-dinamica').replaceChildren();
+    el('pesq-error').hidden = true;
+  }
   el('pesq-error').hidden = true;
   renderView();
   window.scrollTo({ top: 0, behavior: 'instant' });
@@ -801,16 +806,25 @@ function renderSurveyCards(items) {
     card.addEventListener('keydown', event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); loadPublishedSurvey(form.id); } });
     const nome = String(form.empresaNome || form.empresa || form.titulo || '').trim();
     const normalizado = nome.toLocaleLowerCase();
+    const color = normalizado.includes('plas') ? '#B91010' : normalizado.includes('tub') || normalizado.includes('cesb') ? '#2D2D8F' : '#C70602';
+    card.style.setProperty('--survey-color', color);
     const logo = normalizado.includes('plas') ? '/assets/logo-plaschio-new.png' : normalizado.includes('tub') || normalizado.includes('cesb') ? '/assets/logo-tubahia-new.png' : '/assets/logo-chiacchio-new.png';
     const logoWrap = document.createElement('div'); logoWrap.className='survey-card-logo-wrap';
     const logoImg = document.createElement('img'); logoImg.className='survey-card-logo'; logoImg.src=logo; logoImg.alt=nome; logoWrap.appendChild(logoImg);
     const name = document.createElement('div'); name.className='survey-card-name'; name.textContent=nome;
     const copy = document.createElement('p'); copy.className='survey-card-copy'; copy.textContent='Compartilhe sua experiência com nossos produtos, serviços e atendimento.';
-    const button = document.createElement('button'); button.type='button'; button.className='survey-card-button'; button.textContent='Responder pesquisa'; button.addEventListener('click', event => { event.stopPropagation(); loadPublishedSurvey(form.id); });
-    card.append(logoWrap,name,copy,button); grid.appendChild(card);
+    const button = document.createElement('button'); button.type='button'; button.className='survey-card-button'; button.textContent='Começar a pesquisa →'; button.addEventListener('click', event => { event.stopPropagation(); loadPublishedSurvey(form.id); });
+    const content = document.createElement('div'); content.className='survey-card-content';
+    const kicker = document.createElement('div'); kicker.className='survey-card-kicker'; kicker.textContent='Pesquisa de Satisfação';
+    const facts = document.createElement('div'); facts.className='survey-card-facts';
+    ['Poucos minutos','Notas de 0 a 10','Sem login'].forEach(text => { const fact=document.createElement('span'); fact.className='survey-card-fact'; fact.textContent=text; facts.appendChild(fact); });
+    content.append(kicker,name,copy,facts,button); card.append(logoWrap,content); grid.appendChild(card);
   });
 }
 async function loadPublishedSurvey(id) {
+  // A seleção é apenas a etapa anterior. Ao iniciar uma pesquisa, remova-a
+  // da renderização para não exibir cards antigos junto do questionário.
+  el('surveyCards').hidden = true;
   el('pesq-error').hidden = true; el('pesq-dinamica').textContent = 'Carregando pesquisa…';
   const query = surveyToken ? '?convite=' + encodeURIComponent(surveyToken) : '';
   try { const data = await apiJson('/api/public/pesquisas/' + encodeURIComponent(id) + query); renderPublishedSurvey(data.formulario); }
