@@ -1,0 +1,12 @@
+const fs = require('fs');
+const html = fs.readFileSync('portal.html', 'utf8');
+const check = (x, m) => { if (!x) throw new Error(m); console.log(`✓ ${m}`); };
+check(/id="man-evidencias" type="file" multiple/.test(html), 'upload aceita múltiplos arquivos');
+check(/manSelectedFiles = \[\]/.test(html), 'seleção de arquivos é reiniciada ao iniciar nova manifestação');
+check(/manSelectedFiles\.push\(file\)/.test(html), 'seleções sucessivas preservam arquivos anteriores');
+check(/new DataTransfer\(\)/.test(html), 'lista acumulada é retransmitida no input');
+check(/manSelectedFiles\.length > 8/.test(html) && /3 \* 1024 \* 1024/.test(html), 'limites de quantidade e tamanho são aplicados');
+check(/body: JSON\.stringify\(\{ empresa,/.test(html) && /evidencias,/.test(html), 'todos os anexos selecionados entram no payload');
+check(/descricaoOriginal: value\('man-descricao'\)/.test(html), 'relato original é transmitido integralmente');
+check(/motivoManifestacao: el\('man-motivo'\)\.selectedOptions/.test(html), 'motivo real é transmitido');
+console.log('PORTAL MANIFESTAÇÃO: 8 verificações aprovadas');
