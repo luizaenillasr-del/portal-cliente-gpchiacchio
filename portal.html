@@ -688,6 +688,7 @@ async function lerEvidencias() {
 const ui = { tela: 'inicio', tipoCliente: '', rEnviando: false, pBuscando: false, rErro: '', pErro: '', pResultado: false, toast: '' };
 let lastProtocol = '', lookupProtocol = '', _waNumero = '', _waMensagem = '', toastTimer;
 let manifestacaoEnvioId = crypto.randomUUID();
+let manSelectedFiles = [];
 const el = id => document.getElementById(id);
 const value = id => el(id).value.trim();
 
@@ -724,7 +725,7 @@ function renderView() {
 }
 
 function goTo(pageId) {
-  if (pageId === 'page-manifestacao' && ui.tela !== 'reclamacao') manifestacaoEnvioId = crypto.randomUUID();
+  if (pageId === 'page-manifestacao' && ui.tela !== 'reclamacao') { manifestacaoEnvioId = crypto.randomUUID(); manSelectedFiles = []; if (el('man-evidencias')) el('man-evidencias').value = ''; if (el('man-arquivos')) el('man-arquivos').textContent = ''; }
   ui.tela = { 'page-home': 'inicio', 'page-manifestacao': 'reclamacao', 'page-pesquisa': 'pesquisa', 'page-protocolo': 'protocolo' }[pageId] || 'inicio';
   ui.rErro = ''; ui.pErro = ''; ui.pResultado = false;
   if (pageId === 'page-pesquisa') {
@@ -943,12 +944,27 @@ function openWhatsApp(event) {
   if (!_waNumero) { flash('O WhatsApp está indisponível. Entre em contato por e-mail.'); return; }
   window.open(whatsappUrl(), '_blank', 'noopener,noreferrer');
 }
-function updateFiles() {
-  el('man-arquivos').textContent = Array.from(el('man-evidencias').files).map(file => file.name).join(' · ');
+function updateFiles(incoming) {
+  const input = el('man-evidencias');
+  const novos = Array.from(incoming || input.files || []);
+  const porArquivo = new Set(manSelectedFiles.map(file => `${file.name}|${file.size}|${file.lastModified}`));
+  for (const file of novos) {
+    const chave = `${file.name}|${file.size}|${file.lastModified}`;
+    if (!porArquivo.has(chave)) { porArquivo.add(chave); manSelectedFiles.push(file); }
+  }
+  if (manSelectedFiles.length > 8) { manSelectedFiles = manSelectedFiles.slice(0, 8); flash('É possível enviar até 8 arquivos.'); }
+  const total = manSelectedFiles.reduce((sum, file) => sum + file.size, 0);
+  if (total > 3 * 1024 * 1024) flash('Os anexos devem somar no máximo 3 MB.');
+  try {
+    const transfer = new DataTransfer();
+    manSelectedFiles.forEach(file => transfer.items.add(file));
+    input.files = transfer.files;
+  } catch (_) { /* navegadores sem DataTransfer ainda exibem a seleção atual */ }
+  el('man-arquivos').textContent = manSelectedFiles.map(file => file.name).join(' · ');
 }
-el('man-evidencias').addEventListener('change', updateFiles);
+el('man-evidencias').addEventListener('change', event => updateFiles(event.target.files));
 el('man-dropzone').addEventListener('dragover', event => event.preventDefault());
-el('man-dropzone').addEventListener('drop', event => { event.preventDefault(); el('man-evidencias').files = event.dataTransfer.files; updateFiles(); });
+el('man-dropzone').addEventListener('drop', event => { event.preventDefault(); updateFiles(event.dataTransfer.files); });
 el('man-dropzone').addEventListener('keydown', event => { if (['Enter', ' '].includes(event.key)) { event.preventDefault(); el('man-evidencias').click(); } });
 el('prot-input').addEventListener('keydown', event => { if (event.key === 'Enter') { event.preventDefault(); buscarProtocolo(); } });
 renderView(); loadSurveyCards(); loadWhatsApp();
